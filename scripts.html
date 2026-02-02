@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Pevolution Script Library - Browse and access protected scripts" />
-    <title>Script Library — Pevolution</title>
-    <link rel="icon" type="image/png" href="assets/images/pevolution-logo.png" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="description" content="Pevolution Script Library" />
+    <title>Scripts — Pevolution</title>
+    <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -14,20 +14,20 @@
 
 <header class="site-header">
     <div class="container header-inner">
-        <a href="/" class="logo">
+        <a href="./" class="logo">
             <span class="logo-icon">
                 <i class="fas fa-shield-alt"></i>
             </span>
             <span class="logo-text">Pevolution</span>
         </a>
         <nav class="nav-links">
-            <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
-            <a href="/scripts" class="nav-link active"><i class="fas fa-code"></i> Scripts</a>
-            <a href="/docs" class="nav-link"><i class="fas fa-book"></i> Docs</a>
+            <a href="./" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="./scripts.html" class="nav-link active"><i class="fas fa-code"></i> Scripts</a>
+            <a href="./docs.html" class="nav-link"><i class="fas fa-book"></i> Docs</a>
             <a href="https://discord.gg/pevolution" target="_blank" class="nav-link">
                 <i class="fab fa-discord"></i> Discord
             </a>
-            <a href="/get-key" class="nav-pill" id="getKeyBtn">
+            <a href="javascript:void(0)" class="nav-pill" id="getKeyBtn">
                 <i class="fas fa-key"></i> Get Key
             </a>
         </nav>
@@ -37,104 +37,89 @@
     </div>
 </header>
 
-<main class="scripts-main">
+<main class="section">
     <div class="container">
-        <div class="scripts-header">
-            <h1 class="page-title">Script Library</h1>
-            <p class="page-subtitle">Browse and access protected scripts from our secure repository</p>
-            
-            <div class="scripts-filter">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search scripts..." id="scriptSearch">
-                </div>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="game">Game Scripts</button>
-                    <button class="filter-btn" data-filter="utility">Utilities</button>
-                    <button class="filter-btn" data-filter="ui">UI Libraries</button>
-                    <button class="filter-btn" data-filter="premium">Premium</button>
-                </div>
-            </div>
+        <div class="section-header">
+            <h1 class="section-title">Script Library</h1>
+            <p class="section-description">
+                Community-shared scripts with basic protection.
+            </p>
         </div>
-
+        
         <div class="coming-soon-card">
             <div class="coming-soon-icon">
                 <i class="fas fa-tools"></i>
             </div>
-            <h2>Script Library Coming Soon</h2>
-            <p>We're building a comprehensive script repository with advanced filtering, ratings, and secure access controls.</p>
+            <h2>Coming Soon</h2>
+            <p>We're building a community script repository where developers can share their protected scripts.</p>
             
-            <div class="coming-soon-features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Advanced search and filtering</span>
+            <div class="features-grid" style="margin: 40px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Share Scripts</h3>
+                    <p>Share your scripts with the community securely</p>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>User ratings and reviews</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Script version management</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Secure access controls</span>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Get Scripts</h3>
+                    <p>Find useful scripts from other developers</p>
                 </div>
             </div>
             
-            <div class="progress-section">
-                <div class="progress-info">
-                    <span>Development Progress</span>
-                    <span>65%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%"></div>
-                </div>
-                <p class="progress-note">Estimated launch: Q1 2024</p>
+            <p style="color: var(--color-text-secondary); margin-top: 30px;">
+                In the meantime, you can use our basic protection system for your own scripts.
+            </p>
+            
+            <div class="code-block" style="margin: 30px auto; max-width: 500px;">
+                <pre><code>-- Basic Pevolution Loader
+loadstring(game:HttpGet(
+    "https://pevolution.vercel.app/api/script",
+    true
+))()</code></pre>
             </div>
-
-            <div class="cta-actions">
-                <a href="/docs" class="btn btn-primary">
-                    <i class="fas fa-book"></i> Read Documentation
+            
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                <a href="./docs.html" class="btn btn-primary">
+                    <i class="fas fa-book"></i> Read Docs
                 </a>
                 <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-discord"></i> Join Discord for Updates
+                    <i class="fab fa-discord"></i> Join Discord
                 </a>
             </div>
         </div>
-
-        <!-- Placeholder Scripts -->
-        <div class="scripts-grid" id="scriptsGrid">
-            <!-- Will be populated by JavaScript -->
+        
+        <div class="section-header" style="margin-top: 80px;">
+            <h3>How to Protect Your Script</h3>
         </div>
-
-        <!-- How to Use -->
-        <div class="usage-section">
-            <h3>How to Use Scripts</h3>
-            <div class="usage-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Get Access Key</h4>
-                        <p>Request a free access key through our Discord community or the Get Key page.</p>
-                    </div>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-code"></i>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Copy Loader Code</h4>
-                        <p>Each script has a unique loader code that you can copy with one click.</p>
-                    </div>
+                <h3>Host Your Script</h3>
+                <p>Upload your Lua script to GitHub Gist or Pastebin</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-link"></i>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Execute in Roblox</h4>
-                        <p>Paste the loader code into your Roblox executor to run the protected script.</p>
-                    </div>
+                <h3>Use Our API</h3>
+                <p>Point our API to your script URL</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
+                <h3>Share Securely</h3>
+                <p>Share the loader code instead of direct link</p>
             </div>
         </div>
     </div>
@@ -144,165 +129,25 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo">
+                <a href="./" class="logo">
                     <span class="logo-icon">
                         <i class="fas fa-shield-alt"></i>
                     </span>
                     <span class="logo-text">Pevolution</span>
                 </a>
-                <p class="footer-tagline">Advanced script protection & secure execution platform</p>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h4>Scripts</h4>
-                    <a href="/scripts#game">Game Scripts</a>
-                    <a href="/scripts#utility">Utilities</a>
-                    <a href="/scripts#ui">UI Libraries</a>
-                    <a href="/scripts#premium">Premium</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <a href="/docs">Documentation</a>
-                    <a href="https://discord.gg/pevolution" target="_blank">Discord</a>
-                    <a href="/faq">FAQ</a>
-                    <a href="/contact">Contact</a>
-                </div>
+                <p class="footer-tagline">Community script protection platform</p>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="copyright">© 2024 Pevolution. All rights reserved.</p>
+            <p class="copyright">© 2024 Pevolution Community.</p>
         </div>
     </div>
 </footer>
 
-<!-- JavaScript -->
-<script src="assets/js/protect.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/coming-soon.js"></script>
-<script>
-    // Scripts placeholder data
-    document.addEventListener('DOMContentLoaded', function() {
-        const scripts = [
-            {
-                id: 1,
-                name: "Universal ESP",
-                category: "game",
-                description: "Advanced ESP with player tracking, item highlighting, and customizable visuals.",
-                rating: 4.8,
-                downloads: "12.5K",
-                premium: false
-            },
-            {
-                id: 2,
-                name: "Auto Farm",
-                category: "game",
-                description: "Intelligent farming system with pathfinding and anti-afk protection.",
-                rating: 4.6,
-                downloads: "8.7K",
-                premium: true
-            },
-            {
-                id: 3,
-                name: "UI Library",
-                category: "ui",
-                description: "Modern UI framework with draggable windows, tabs, and extensive customization.",
-                rating: 4.9,
-                downloads: "15.2K",
-                premium: false
-            },
-            {
-                id: 4,
-                name: "Script Hub",
-                category: "utility",
-                description: "All-in-one script hub with multiple game support and regular updates.",
-                rating: 4.7,
-                downloads: "21.3K",
-                premium: true
-            }
-        ];
-
-        const grid = document.getElementById('scriptsGrid');
-        
-        scripts.forEach(script => {
-            const scriptCard = document.createElement('div');
-            scriptCard.className = 'script-card';
-            scriptCard.dataset.category = script.category;
-            
-            scriptCard.innerHTML = `
-                <div class="script-header">
-                    <span class="script-category">${script.category.toUpperCase()}</span>
-                    ${script.premium ? '<span class="script-premium">PREMIUM</span>' : ''}
-                </div>
-                <div class="script-body">
-                    <h3 class="script-title">${script.name}</h3>
-                    <p class="script-description">${script.description}</p>
-                    <div class="script-meta">
-                        <span class="script-rating">
-                            <i class="fas fa-star"></i> ${script.rating}
-                        </span>
-                        <span class="script-downloads">
-                            <i class="fas fa-download"></i> ${script.downloads}
-                        </span>
-                    </div>
-                </div>
-                <div class="script-footer">
-                    <button class="btn btn-outline btn-small" onclick="showComingSoon('${script.name}')">
-                        <i class="fas fa-code"></i> Get Loader
-                    </button>
-                    <button class="btn btn-ghost btn-small" onclick="showComingSoon('Details')">
-                        <i class="fas fa-info-circle"></i> Details
-                    </button>
-                </div>
-            `;
-            
-            grid.appendChild(scriptCard);
-        });
-
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const scriptCards = document.querySelectorAll('.script-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                
-                scriptCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Search functionality
-        const searchInput = document.getElementById('scriptSearch');
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            
-            scriptCards.forEach(card => {
-                const title = card.querySelector('.script-title').textContent.toLowerCase();
-                const desc = card.querySelector('.script-description').textContent.toLowerCase();
-                
-                if (title.includes(query) || desc.includes(query)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    function showComingSoon(feature) {
-        alert(`🎯 ${feature} feature is coming soon! Join our Discord for updates.`);
-    }
-</script>
+<script src="./assets/js/protect.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/coming-soon.js"></script>
 
 </body>
 </html>

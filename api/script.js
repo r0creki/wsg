@@ -1,51 +1,69 @@
 // File: /api/script.js
 module.exports = async (req, res) => {
-    // Security headers
+    // Set security headers
     res.setHeader('Content-Type', 'text/plain');
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
     
+    // CHANGE THIS URL to your script URL
     const REAL_SCRIPT_URL = "https://raw.githubusercontent.com/i77lhm/Libraries/refs/heads/main/Utopia/Example.lua";
     
-    // Security validation
+    // Basic validation - check if request is likely from Roblox
     const userAgent = req.headers['user-agent'] || '';
     const isFromRoblox = userAgent.includes('Roblox') || 
-                        req.headers['x-roblox-agent'] ||
-                        req.query.key === process.env.SECRET_KEY;
+                        req.query.key === 'community';
     
     if (!isFromRoblox) {
-        return res.status(403).send(`-- 🔒 Pevolution Protected Endpoint
+        // Return a friendly message for browser access
+        return res.send(`-- 🔒 Pevolution Community Gateway
 -- 
--- Direct browser access is not permitted.
--- Use in Roblox Executor:
+-- This is a protected script endpoint.
+-- 
+-- Direct browser access is not allowed.
+-- Use in Roblox executor:
+-- 
 -- loadstring(game:HttpGet("https://pevolution.vercel.app/api/script", true))()
 -- 
--- Join Discord: https://discord.gg/pevolution`);
+-- Join our community: https://discord.gg/pevolution
+-- 
+-- ⚠️  Note: This is basic protection only.
+--    Determined users may still be able to access the source.`);
     }
     
-    const loaderScript = `-- 🔒 Pevolution Secure Loader v2.0
-local REAL_SCRIPT = "${REAL_SCRIPT_URL}"
+    // Create loader that fetches the actual script
+    const loaderScript = `-- Pevolution Community Loader
+-- Basic script protection gateway
+-- Community: https://discord.gg/pevolution
 
-local function loadSecure()
-    local success, script = pcall(function()
-        return game:HttpGet(REAL_SCRIPT, true)
+local function loadCommunityScript()
+    local scriptURL = "${REAL_SCRIPT_URL}"
+    
+    print("[Pevolution] Loading community script...")
+    print("[Pevolution] Gateway: pevolution.vercel.app")
+    
+    local success, scriptContent = pcall(function()
+        return game:HttpGet(scriptURL, true)
     end)
     
     if success then
-        local func = loadstring(script)
-        if func then 
+        print("[Pevolution] ✓ Script loaded successfully")
+        print("[Pevolution] ⚠️  Remember: This is basic protection")
+        print("[Pevolution] ℹ️   Join community for help: discord.gg/pevolution")
+        
+        local func, errorMsg = loadstring(scriptContent)
+        if func then
             func()
-            print("[Pevolution] Script loaded successfully")
+        else
+            warn("[Pevolution] ✗ Error loading script: " .. tostring(errorMsg))
         end
     else
-        warn("[Pevolution] Failed to load script")
+        warn("[Pevolution] ✗ Failed to fetch script: " .. tostring(scriptContent))
     end
 end
 
-loadSecure()`;
+-- Start loading
+loadCommunityScript()`;
     
     res.send(loaderScript);
 };

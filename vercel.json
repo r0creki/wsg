@@ -13,46 +13,33 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
+      "dest": "/index.html"
     },
     {
       "src": "/scripts",
-      "dest": "/scripts.html",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
+      "dest": "/scripts.html"
     },
     {
       "src": "/docs",
-      "dest": "/docs.html",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
+      "dest": "/docs.html"
     },
     {
       "src": "/api/script",
       "dest": "/api/script.js",
       "headers": {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, OPTIONS",
-        "Cache-Control": "no-store, no-cache, must-revalidate"
+        "Access-Control-Allow-Methods": "GET, OPTIONS"
       }
     },
     {
       "src": "/assets/(.*)",
       "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
+        "Cache-Control": "public, max-age=31536000"
       }
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "SECRET_KEY": "pevolution-secure-key-change-in-production"
-  }
+  ]
 }

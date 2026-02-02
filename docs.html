@@ -3,31 +3,68 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Pevolution Documentation - Learn about our platform and community" />
+    <meta name="description" content="Pevolution Documentation" />
     <title>Documentation — Pevolution</title>
-    <link rel="icon" type="image/png" href="assets/images/pevolution-logo.png" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .docs-content {
+            line-height: 1.8;
+        }
+        .docs-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .docs-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+        .docs-content ul, .docs-content ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .docs-content li {
+            margin: 8px 0;
+        }
+        .info-box {
+            background: rgba(124, 58, 237, 0.1);
+            border-left: 4px solid var(--color-primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--color-warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body class="page-dark docs-page">
 
 <header class="site-header">
     <div class="container header-inner">
-        <a href="/" class="logo">
+        <a href="./" class="logo">
             <span class="logo-icon">
                 <i class="fas fa-shield-alt"></i>
             </span>
             <span class="logo-text">Pevolution</span>
         </a>
         <nav class="nav-links">
-            <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
-            <a href="/scripts" class="nav-link"><i class="fas fa-code"></i> Scripts</a>
-            <a href="/docs" class="nav-link active"><i class="fas fa-book"></i> Docs</a>
+            <a href="./" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="./scripts.html" class="nav-link"><i class="fas fa-code"></i> Scripts</a>
+            <a href="./docs.html" class="nav-link active"><i class="fas fa-book"></i> Docs</a>
             <a href="https://discord.gg/pevolution" target="_blank" class="nav-link">
                 <i class="fab fa-discord"></i> Discord
             </a>
-            <a href="/get-key" class="nav-pill" id="getKeyBtn">
+            <a href="javascript:void(0)" class="nav-pill" id="getKeyBtn">
                 <i class="fas fa-key"></i> Get Key
             </a>
         </nav>
@@ -37,322 +74,122 @@
     </div>
 </header>
 
-<main class="docs-main">
+<main class="section">
     <div class="container">
-        <div class="docs-layout">
-            <!-- Sidebar -->
-            <aside class="docs-sidebar">
-                <div class="sidebar-header">
-                    <h3>Documentation</h3>
-                </div>
-                <nav class="sidebar-nav">
-                    <a href="#introduction" class="nav-item active">
-                        <i class="fas fa-home"></i> Introduction
-                    </a>
-                    <a href="#getting-started" class="nav-item">
-                        <i class="fas fa-rocket"></i> Getting Started
-                    </a>
-                    <a href="#security" class="nav-item">
-                        <i class="fas fa-shield-alt"></i> Security Features
-                    </a>
-                    <a href="#api" class="nav-item">
-                        <i class="fas fa-code"></i> API Reference
-                    </a>
-                    <a href="#community" class="nav-item">
-                        <i class="fas fa-users"></i> Community
-                    </a>
-                    <a href="#faq" class="nav-item">
-                        <i class="fas fa-question-circle"></i> FAQ
-                    </a>
-                    <a href="#support" class="nav-item">
-                        <i class="fas fa-life-ring"></i> Support
-                    </a>
-                </nav>
-                <div class="sidebar-footer">
-                    <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-outline btn-small">
+        <div class="docs-content">
+            <h1>Pevolution Documentation</h1>
+            
+            <div class="info-box">
+                <p><strong>Welcome to Pevolution!</strong> This is a community-driven project to help protect Roblox scripts from skidding and unauthorized redistribution.</p>
+            </div>
+            
+            <h2>What is Pevolution?</h2>
+            <p>Pevolution is a simple gateway system that helps protect your Roblox scripts by:</p>
+            <ul>
+                <li>Preventing direct access to your script source code</li>
+                <li>Adding basic anti-skid protection</li>
+                <li>Making it harder for others to copy and redistribute your work</li>
+                <li>Providing a community for script developers</li>
+            </ul>
+            
+            <h2>How It Works</h2>
+            
+            <h3>Basic Concept</h3>
+            <p>Instead of sharing your raw script URL (like a GitHub or Pastebin link), you share a loader code that points to our API. The API then serves your script, but only to legitimate Roblox clients.</p>
+            
+            <div class="code-block">
+                <pre><code>-- Instead of sharing this:
+https://pastebin.com/raw/your-script
+
+-- You share this loader:
+loadstring(game:HttpGet("https://pevolution.vercel.app/api/script", true))()</code></pre>
+            </div>
+            
+            <h3>Setup Instructions</h3>
+            
+            <div class="warning-box">
+                <p><strong>Note:</strong> You need to modify the API code to point to your script URL.</p>
+            </div>
+            
+            <h4>Step 1: Host Your Script</h4>
+            <p>Upload your Lua script to one of these services:</p>
+            <ul>
+                <li>GitHub Gist (recommended)</li>
+                <li>Pastebin</li>
+                <li>Any raw text hosting service</li>
+            </ul>
+            
+            <h4>Step 2: Update API Code</h4>
+            <p>In the <code>api/script.js</code> file, change this line:</p>
+            <div class="code-block">
+                <pre><code>const REAL_SCRIPT_URL = "https://raw.githubusercontent.com/i77lhm/Libraries/refs/heads/main/Utopia/Example.lua";</code></pre>
+            </div>
+            <p>To point to your script URL:</p>
+            <div class="code-block">
+                <pre><code>const REAL_SCRIPT_URL = "https://gist.githubusercontent.com/your-username/your-gist-id/raw/your-script.lua";</code></pre>
+            </div>
+            
+            <h4>Step 3: Deploy to Vercel</h4>
+            <ol>
+                <li>Push your code to GitHub</li>
+                <li>Go to <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+                <li>Import your GitHub repository</li>
+                <li>Deploy with default settings</li>
+            </ol>
+            
+            <h4>Step 4: Use the Loader</h4>
+            <p>Use this code in Roblox (replace with your Vercel URL):</p>
+            <div class="code-block">
+                <pre><code>loadstring(game:HttpGet("https://your-project.vercel.app/api/script", true))()</code></pre>
+            </div>
+            
+            <h2>Community Guidelines</h2>
+            <p>Pevolution is a community project. Please follow these guidelines:</p>
+            <ul>
+                <li>Be respectful to other developers</li>
+                <li>Don't use this for malicious scripts</li>
+                <li>Help others learn and improve</li>
+                <li>Share knowledge and resources</li>
+                <li>Respect intellectual property rights</li>
+            </ul>
+            
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>Is this 100% secure?</h3>
+            <p><strong>No.</strong> This provides basic protection against casual skidding, but determined individuals can still bypass it. It's meant to make copying harder, not impossible.</p>
+            
+            <h3>Is it free?</h3>
+            <p><strong>Yes!</strong> Pevolution is completely free and open source.</p>
+            
+            <h3>Can I contribute?</h3>
+            <p><strong>Yes!</strong> Join our Discord community to discuss contributions or fork the project on GitHub.</p>
+            
+            <h3>Does this work with all executors?</h3>
+            <p>It should work with most modern executors that support <code>game:HttpGet()</code>.</p>
+            
+            <h2>Support</h2>
+            <p>If you need help:</p>
+            <ol>
+                <li>Join our <a href="https://discord.gg/pevolution" target="_blank">Discord community</a></li>
+                <li>Check the GitHub repository for issues</li>
+                <li>Read through this documentation</li>
+            </ol>
+            
+            <h2>Disclaimer</h2>
+            <div class="warning-box">
+                <p><strong>Important:</strong> Pevolution is a community project. We're not responsible for how you use this tool. Always follow Roblox's Terms of Service and only use this for legitimate purposes.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+                <p>Made with ❤️ by the Pevolution Community</p>
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+                    <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-primary">
                         <i class="fab fa-discord"></i> Join Discord
                     </a>
+                    <a href="https://github.com/pevolution" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                 </div>
-            </aside>
-
-            <!-- Content -->
-            <div class="docs-content">
-                <!-- Introduction -->
-                <section id="introduction" class="docs-section">
-                    <h1 class="docs-title">Pevolution Documentation</h1>
-                    <p class="docs-lead">Welcome to the Pevolution documentation. Here you'll find everything you need to know about our platform, community, and how to get started.</p>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>About Pevolution</h4>
-                            <p>Pevolution is a community-driven platform focused on providing secure script execution and protection services for Roblox developers. We believe in creating a safe environment where developers can share and protect their work without fear of theft or unauthorized redistribution.</p>
-                        </div>
-                    </div>
-
-                    <h2>Our Mission</h2>
-                    <p>At Pevolution, our mission is to:</p>
-                    <ul class="docs-list">
-                        <li>Provide robust script protection against skidding and theft</li>
-                        <li>Build a supportive community for script developers</li>
-                        <li>Offer reliable and secure script hosting services</li>
-                        <li>Promote ethical script development and sharing</li>
-                        <li>Educate developers about script security best practices</li>
-                    </ul>
-
-                    <h2>Core Values</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Security First</h3>
-                            <p>We prioritize the security and protection of our users' scripts above all else.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Community Driven</h3>
-                            <p>Our platform grows and improves based on community feedback and contributions.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h3>Transparency</h3>
-                            <p>We're open about our processes and committed to clear communication.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h3>Supportive</h3>
-                            <p>We help developers grow and succeed in their script development journey.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Getting Started -->
-                <section id="getting-started" class="docs-section">
-                    <h2>Getting Started</h2>
-                    <p>Follow these steps to start using Pevolution:</p>
-                    
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Join the Community</h3>
-                            <p>Start by joining our Discord community where you can connect with other developers, get support, and stay updated on platform changes.</p>
-                            <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-small">
-                                <i class="fab fa-discord"></i> Join Discord
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Get Your Access Key</h3>
-                            <p>Request a free access key through our Discord community. This key allows you to use our secure script loading system.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Use the Loader</h3>
-                            <p>Use our secure loader to execute protected scripts in Roblox:</p>
-                            <div class="code-block">
-                                <pre><code>loadstring(game:HttpGet("https://pevolution.vercel.app/api/script", true))()</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Security Features -->
-                <section id="security" class="docs-section">
-                    <h2>Security Features</h2>
-                    <p>Pevolution employs multiple layers of security to protect scripts:</p>
-                    
-                    <div class="feature-detail">
-                        <h3>Anti-Skid Protection</h3>
-                        <p>Our advanced anti-skid measures prevent unauthorized copying and redistribution of scripts:</p>
-                        <ul>
-                            <li><strong>Code Obfuscation:</strong> Scripts are obfuscated to make reverse engineering difficult</li>
-                            <li><strong>Runtime Encryption:</strong> Critical code segments are encrypted during execution</li>
-                            <li><strong>Unique Watermarking:</strong> Each distributed script contains unique identifiers</li>
-                            <li><strong>Request Validation:</strong> Only validated requests from authorized sources are processed</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-detail">
-                        <h3>Secure Gateway</h3>
-                        <p>Our gateway system validates every request before delivering scripts:</p>
-                        <ul>
-                            <li><strong>Origin Checking:</strong> Verifies request sources are legitimate</li>
-                            <li><strong>Rate Limiting:</strong> Prevents abuse and brute force attacks</li>
-                            <li><strong>Bot Detection:</strong> Identifies and blocks automated requests</li>
-                            <li><strong>Geographic Filtering:</strong> Optional geographic restrictions</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- API Reference -->
-                <section id="api" class="docs-section">
-                    <h2>API Reference</h2>
-                    <p>Pevolution provides a secure API for script loading:</p>
-                    
-                    <div class="endpoint-card">
-                        <div class="endpoint-header">
-                            <span class="endpoint-method">GET</span>
-                            <span class="endpoint-url">/api/script</span>
-                        </div>
-                        <div class="endpoint-content">
-                            <p><strong>Description:</strong> Main endpoint for loading protected scripts</p>
-                            <p><strong>Parameters:</strong></p>
-                            <ul>
-                                <li><code>key</code> (optional): Access key for authentication</li>
-                                <li><code>script_id</code> (optional): Specific script identifier</li>
-                            </ul>
-                            <p><strong>Example Usage:</strong></p>
-                            <div class="code-block">
-                                <pre><code>loadstring(game:HttpGet("https://pevolution.vercel.app/api/script?key=YOUR_KEY", true))()</code></pre>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="note">
-                        <div class="note-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="note-content">
-                            <h4>Important Note</h4>
-                            <p>The API only responds to requests from verified Roblox clients. Direct browser access will return an access denied message.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Community -->
-                <section id="community" class="docs-section">
-                    <h2>Community Guidelines</h2>
-                    <p>Our community is built on mutual respect and support. Please follow these guidelines:</p>
-                    
-                    <div class="guideline-card">
-                        <h3>Be Respectful</h3>
-                        <p>Treat all community members with respect. Harassment, discrimination, or hate speech will not be tolerated.</p>
-                    </div>
-
-                    <div class="guideline-card">
-                        <h3>Share Knowledge</h3>
-                        <p>Help other developers by sharing your knowledge and experience. We all grow together.</p>
-                    </div>
-
-                    <div class="guideline-card">
-                        <h3>Respect Intellectual Property</h3>
-                        <p>Do not share or request copyrighted material. Respect other developers' work.</p>
-                    </div>
-
-                    <div class="guideline-card">
-                        <h3>Report Issues</h3>
-                        <p>If you encounter any issues or suspicious activity, report it to the moderation team immediately.</p>
-                    </div>
-
-                    <div class="cta-card">
-                        <h3>Ready to Join?</h3>
-                        <p>Become part of our growing community of script developers and enthusiasts.</p>
-                        <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-primary">
-                            <i class="fab fa-discord"></i> Join Discord Community
-                        </a>
-                    </div>
-                </section>
-
-                <!-- FAQ -->
-                <section id="faq" class="docs-section">
-                    <h2>Frequently Asked Questions</h2>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Is Pevolution free to use?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes, Pevolution is completely free for basic usage. We may introduce premium features in the future, but the core functionality will remain free.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            How do I get an access key?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Access keys are available through our Discord community. Join and request a key from the designated channel.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Is my script safe with Pevolution?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes, we employ multiple layers of security including encryption, obfuscation, and request validation to protect your scripts.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Can I contribute to Pevolution?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes! We welcome contributions. Join our Discord to discuss potential contributions or check our GitHub repository.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Support -->
-                <section id="support" class="docs-section">
-                    <h2>Support</h2>
-                    <p>Need help? Here's how you can get support:</p>
-                    
-                    <div class="support-options">
-                        <div class="support-card">
-                            <div class="support-icon">
-                                <i class="fab fa-discord"></i>
-                            </div>
-                            <h3>Discord Community</h3>
-                            <p>Get real-time help from our community and support team.</p>
-                            <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-small">
-                                Join Discord
-                            </a>
-                        </div>
-
-                        <div class="support-card">
-                            <div class="support-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h3>Email Support</h3>
-                            <p>For formal inquiries or sensitive issues, contact us via email.</p>
-                            <a href="mailto:support@pevolution.vercel.app" class="btn btn-small">
-                                Send Email
-                            </a>
-                        </div>
-
-                        <div class="support-card">
-                            <div class="support-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <h3>Documentation</h3>
-                            <p>Check our documentation for answers to common questions.</p>
-                            <a href="/docs" class="btn btn-small">
-                                Read Docs
-                            </a>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
@@ -362,69 +199,25 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo">
+                <a href="./" class="logo">
                     <span class="logo-icon">
                         <i class="fas fa-shield-alt"></i>
                     </span>
                     <span class="logo-text">Pevolution</span>
                 </a>
-                <p class="footer-tagline">Advanced script protection & secure execution platform</p>
+                <p class="footer-tagline">Community script protection platform</p>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="copyright">© 2024 Pevolution. All rights reserved.</p>
+            <p class="copyright">© 2024 Pevolution Community.</p>
         </div>
     </div>
 </footer>
 
-<!-- JavaScript -->
-<script src="assets/js/protect.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/coming-soon.js"></script>
-<script>
-    // FAQ functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                const icon = this.querySelector('i');
-                
-                // Toggle answer visibility
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-                
-                // Rotate icon
-                icon.style.transform = answer.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('.nav-item').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Update active nav item
-                    document.querySelectorAll('.nav-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // Scroll to target
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    });
-</script>
+<script src="./assets/js/protect.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/coming-soon.js"></script>
 
 </body>
 </html>
