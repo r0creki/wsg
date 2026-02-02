@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Pevolution - Secure Script Gateway with advanced protection" />
-    <title>Pevolution — Script Protected</title>
+    <meta name="description" content="Pevolution - Advanced Script Protection & Secure Execution Platform" />
+    <title>Pevolution — Secure Script Gateway</title>
     <link rel="icon" type="image/png" href="assets/images/pevolution-logo.png" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body class="page-dark">
+<body class="page-dark home-page">
 
 <!-- Header -->
 <header class="site-header">
@@ -26,147 +22,294 @@
             <span class="logo-text">Pevolution</span>
         </a>
         <nav class="nav-links">
-            <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
             <a href="/scripts" class="nav-link"><i class="fas fa-code"></i> Scripts</a>
             <a href="/docs" class="nav-link"><i class="fas fa-book"></i> Docs</a>
             <a href="https://discord.gg/pevolution" target="_blank" class="nav-link">
                 <i class="fab fa-discord"></i> Discord
             </a>
-            <a href="/get-key" class="nav-pill">
+            <a href="/get-key" class="nav-pill" id="getKeyBtn">
                 <i class="fas fa-key"></i> Get Key
             </a>
         </nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </header>
 
-<!-- Main Content -->
-<main class="protected-main">
+<!-- Hero Section -->
+<section class="hero-section">
     <div class="container">
-        <div class="protected-card">
-            <!-- Security Badge -->
-            <div class="security-badge">
+        <div class="hero-content">
+            <div class="hero-badge">
                 <i class="fas fa-shield-check"></i>
-                Protected Endpoint — Access Restricted
+                Advanced Protection Active
             </div>
-
-            <!-- Main Title -->
-            <h1 class="protected-title">
-                Direct Script Access Not Permitted
+            <h1 class="hero-title">
+                Secure Script Execution<br>
+                <span class="text-gradient">Without Compromise</span>
             </h1>
-
-            <!-- Subtitle -->
-            <p class="protected-subtitle">
-                This API endpoint only responds to authenticated requests from Roblox executors 
-                using the official Pevolution loader. Direct browser access is intentionally blocked.
+            <p class="hero-subtitle">
+                Pevolution provides enterprise-grade security for your Roblox scripts, 
+                protecting against skidding, theft, and unauthorized access while 
+                maintaining seamless execution performance.
             </p>
-
-            <!-- Code Block -->
-            <div class="code-wrapper">
+            <div class="hero-actions">
+                <a href="#how-it-works" class="btn btn-primary btn-large">
+                    <i class="fas fa-play-circle"></i> Get Started
+                </a>
+                <a href="/docs" class="btn btn-outline btn-large">
+                    <i class="fas fa-book-open"></i> Read Documentation
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Protected Scripts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Security Monitoring</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-visual">
                 <div class="code-header">
                     <span class="code-dot red"></span>
                     <span class="code-dot yellow"></span>
                     <span class="code-dot green"></span>
-                    <span class="code-title">Pevolution Loader Snippet</span>
-                    <button class="copy-btn" id="copyLoaderBtn">
-                        <i class="far fa-copy"></i> Copy
-                    </button>
+                    <span>secure_loader.lua</span>
                 </div>
-                <div class="code-block">
-                    <pre><code>loadstring(game:HttpGet("https://pevolution.vercel.app/api/script", true))()</code></pre>
-                </div>
-                <p class="code-caption">
-                    Execute this loader in your Roblox executor. The endpoint will only return 
-                    the Lua script for validated requests from game clients.
-                </p>
-            </div>
+                <pre class="code-block"><code>-- Pevolution Secure Loader
+local function loadSecure()
+    local gateway = "pevolution.vercel.app"
+    local success, script = pcall(function()
+        return game:HttpGet(
+            "https://" .. gateway .. "/api/script",
+            true
+        )
+    end)
+    
+    if success then
+        local func = loadstring(script)
+        if func then func() end
+    end
+end
 
-            <!-- Features -->
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3>Anti-Skid Protection</h3>
-                    <p>Advanced measures to prevent script theft and unauthorized redistribution.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Secure Gateway</h3>
-                    <p>All requests pass through multiple security layers before execution.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Auto Updates</h3>
-                    <p>Always receive the latest script versions without changing your loader.</p>
-                </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="action-buttons">
-                <a href="/" class="btn btn-outline">
-                    <i class="fas fa-arrow-left"></i> Back to Home
-                </a>
-                <a href="/docs" class="btn btn-primary">
-                    <i class="fas fa-book-open"></i> View Documentation
-                </a>
-                <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-ghost">
-                    <i class="fab fa-discord"></i> Join Discord
-                </a>
+loadSecure()</code></pre>
             </div>
         </div>
     </div>
-</main>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Process</span>
+            <h2 class="section-title">How Pevolution Works</h2>
+            <p class="section-description">
+                Our multi-layered security system ensures your scripts remain protected at every stage.
+            </p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Upload Script</h3>
+                <p>Developers submit their scripts to our secure repository with optional obfuscation.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security Processing</h3>
+                <p>Scripts are encrypted, watermarked, and protected with anti-skid measures.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Secure Distribution</h3>
+                <p>Protected scripts are delivered through our secure gateway with request validation.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Safe Execution</h3>
+                <p>Scripts execute in a controlled environment with real-time monitoring.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Features</span>
+            <h2 class="section-title">Why Choose Pevolution</h2>
+            <p class="section-description">
+                Comprehensive security solutions tailored for script developers.
+            </p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Anti-Skid Protection</h3>
+                <p>Advanced measures to prevent script theft, reverse engineering, and unauthorized redistribution.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Code Obfuscation</li>
+                    <li><i class="fas fa-check"></i> Runtime Encryption</li>
+                    <li><i class="fas fa-check"></i> Unique Watermarking</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Secure Gateway</h3>
+                <p>Multi-layered request validation ensures only authorized clients can access scripts.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Origin Validation</li>
+                    <li><i class="fas fa-check"></i> Request Filtering</li>
+                    <li><i class="fas fa-check"></i> Rate Limiting</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Performance Optimized</h3>
+                <p>Minimal overhead with global CDN for fast script delivery and execution.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Global CDN Network</li>
+                    <li><i class="fas fa-check"></i> Low Latency</li>
+                    <li><i class="fas fa-check"></i> 99.9% Uptime</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Auto Updates</h3>
+                <p>Automatic script updates without requiring users to change their loader code.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Version Management</li>
+                    <li><i class="fas fa-check"></i> Seamless Updates</li>
+                    <li><i class="fas fa-check"></i> Rollback Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-card">
+            <div class="cta-content">
+                <h2>Ready to Secure Your Scripts?</h2>
+                <p>Join thousands of developers who trust Pevolution for their script protection needs.</p>
+                <div class="cta-actions">
+                    <a href="/docs" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Get Started Free
+                    </a>
+                    <a href="https://discord.gg/pevolution" target="_blank" class="btn btn-outline btn-large">
+                        <i class="fab fa-discord"></i> Join Community
+                    </a>
+                </div>
+            </div>
+            <div class="cta-visual">
+                <div class="security-shield">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="site-footer">
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">
+                <a href="/" class="logo">
                     <span class="logo-icon">
                         <i class="fas fa-shield-alt"></i>
                     </span>
                     <span class="logo-text">Pevolution</span>
+                </a>
+                <p class="footer-tagline">Advanced script protection & secure execution platform</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/pevolution" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://github.com/pevolution" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/pevolution" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
-                <p class="footer-tagline">Advanced script protection & secure execution</p>
             </div>
             
             <div class="footer-links">
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4>Product</h4>
+                    <a href="/">Home</a>
+                    <a href="/scripts">Scripts</a>
                     <a href="/docs">Documentation</a>
-                    <a href="/scripts">Script Library</a>
-                    <a href="/faq">FAQ</a>
+                    <a href="/get-key">Get Key</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="/docs#getting-started">Getting Started</a>
+                    <a href="/docs#api">API Reference</a>
+                    <a href="/docs#security">Security</a>
+                    <a href="/docs#faq">FAQ</a>
                 </div>
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <a href="/terms">Terms of Service</a>
                     <a href="/privacy">Privacy Policy</a>
                     <a href="/dmca">DMCA</a>
+                    <a href="/guidelines">Community Guidelines</a>
                 </div>
                 <div class="footer-section">
                     <h4>Community</h4>
                     <a href="https://discord.gg/pevolution" target="_blank">Discord</a>
                     <a href="https://github.com/pevolution" target="_blank">GitHub</a>
                     <a href="/contact">Contact</a>
+                    <a href="/status">Status</a>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p class="copyright">© 2024 Pevolution. All rights reserved.</p>
+            <p class="copyright">© 2024 Pevolution. All rights reserved. Not affiliated with Roblox Corporation.</p>
             <div class="footer-stats">
                 <span class="stat-item">
                     <i class="fas fa-shield-check"></i>
-                    <span>API Status: <strong>Operational</strong></span>
+                    <span>System Status: <strong class="status-online">Operational</strong></span>
                 </span>
                 <span class="stat-item">
                     <i class="fas fa-user"></i>
-                    <span>Users Protected: <strong>10K+</strong></span>
+                    <span>Protected Users: <strong>10,843</strong></span>
                 </span>
             </div>
         </div>
@@ -176,6 +319,7 @@
 <!-- JavaScript -->
 <script src="assets/js/protect.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/coming-soon.js"></script>
 
 </body>
 </html>

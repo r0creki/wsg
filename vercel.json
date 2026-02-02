@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "index.html",
+      "src": "*.html",
       "use": "@vercel/static"
     }
   ],
@@ -19,13 +19,26 @@
       }
     },
     {
+      "src": "/scripts",
+      "dest": "/scripts.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/docs",
+      "dest": "/docs.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
       "src": "/api/script",
       "dest": "/api/script.js",
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, User-Agent, X-Requested-With",
-        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate"
+        "Cache-Control": "no-store, no-cache, must-revalidate"
       }
     },
     {
@@ -40,6 +53,6 @@
     }
   ],
   "env": {
-    "SECRET_KEY": "pevolution-secure-key-change-this"
+    "SECRET_KEY": "pevolution-secure-key-change-in-production"
   }
 }
